@@ -1,14 +1,10 @@
-import Footer from "../components/footer/Footer";
-import Navbar from "../components/navbar/Navbar";
 import Register from "../components/register/Register";
+import Layout from "./Layout";
 
 export default function RegistrationPage(){
-
     return(
-        <>
-            <Navbar/>
+        <Layout>
             <Register/>
-            <Footer/>
-        </>
+        </Layout>
     );
 };

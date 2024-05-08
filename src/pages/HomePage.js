@@ -1,14 +1,10 @@
-import Footer from "../components/footer/Footer";
 import Home from "../components/home/Home";
-import Navbar from "../components/navbar/Navbar";
+import Layout from "./Layout";
 
 export default function HomePage(){
-
     return(
-        <>
-            <Navbar/>
+        <Layout>
             <Home/>
-            <Footer/>
-        </>
+        </Layout>
     );
 };
