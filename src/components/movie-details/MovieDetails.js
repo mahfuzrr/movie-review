@@ -1,3 +1,6 @@
+import detailsImage from '../../assets/details-img.png';
+import avatar from '../../assets/avatar.png';
+
 export default function MovieDetails(){
 
     return(
@@ -5,7 +8,7 @@ export default function MovieDetails(){
             <div class="w-4/5 mt-8 ml-auto mr-auto flex">
                 <div class="flex w-9/12">
                     <div class="w-full">
-                        <img class="w-64 border border-white rounded-md" src="./Group 1.png" alt="thumbnail"/>
+                        <img class="w-64 border border-white rounded-md" src={detailsImage} alt="thumbnail"/>
                     </div>
                     <div class="text-white md:ml-8">
                         <p class="text-[35px] font-medium">Tiistiy Mistity</p>
@@ -66,27 +69,27 @@ export default function MovieDetails(){
                 <p class="text-white font-medium text-[20px]">Top Cast</p>
                 <div class="mt-6 grid grid-cols-4 gap-7">
                     <div class="flex items-center">
-                            <img class="border border-white rounded-full mr-4 w-12" src="./Avatar 2.png" alt="Avatar"/>
+                            <img class="border border-white rounded-full mr-4 w-12" src={avatar} alt="Avatar"/>
                             <p class="text-white text-[14px]">Vin Disel</p>
                     </div>
                     <div class="flex items-center">
-                            <img class="border border-white rounded-full mr-4 w-12" src="./Avatar 2.png" alt="Avatar"/>
+                            <img class="border border-white rounded-full mr-4 w-12" src={avatar} alt="Avatar"/>
                             <p class="text-white text-[14px]">Vin Disel</p>
                     </div>
                     <div class="flex items-center">
-                            <img class="border border-white rounded-full mr-4 w-12" src="./Avatar 2.png" alt="Avatar"/>
+                            <img class="border border-white rounded-full mr-4 w-12" src={avatar} alt="Avatar"/>
                             <p class="text-white text-[14px]">Vin Disel</p>
                     </div>
                     <div class="flex items-center">
-                            <img class="border border-white rounded-full mr-4 w-12" src="./Avatar 2.png" alt="Avatar"/>
+                            <img class="border border-white rounded-full mr-4 w-12" src={avatar} alt="Avatar"/>
                             <p class="text-white text-[14px]">Vin Disel</p>
                     </div>
                     <div class="flex items-center">
-                            <img class="border border-white rounded-full mr-4 w-12" src="./Avatar 2.png" alt="Avatar"/>
+                            <img class="border border-white rounded-full mr-4 w-12" src={avatar} alt="Avatar"/>
                             <p class="text-white text-[14px]">Vin Disel</p>
                     </div>
                     <div class="flex items-center">
-                            <img class="border border-white rounded-full mr-4 w-12" src="./Avatar 2.png" alt="Avatar"/>
+                            <img class="border border-white rounded-full mr-4 w-12" src={avatar} alt="Avatar"/>
                             <p class="text-white text-[14px]">Vin Disel</p>
                     </div>
                 </div>

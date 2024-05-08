@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
+import useAuthCheck from "../hooks/useAuthCheck";
 
 export default function Navbar(){
     const navigate = useNavigate();
+    const auth = useAuthCheck();
     return(
         <nav className="bg-[#303441] w-4/5 flex items-center mt-4 ml-auto mr-auto px-6 py-4 rounded-[3px]">
         {/* website logo  */}
@@ -17,7 +19,9 @@ export default function Navbar(){
             </div>
             {/* <!-- profile --> */}
             <div>
-                <button type="button" onClick={() => navigate('/my-profile')} className="rounded-full border-[2px] border-white px-2 py-1 active:scale-x-95"><i className="fa-regular fa-user text-white"></i></button>
+                {auth ? <button type="button" onClick={() => navigate('/my-profile')} className="rounded-full border-[2px] border-white px-2 py-1 active:scale-x-95"><i className="fa-regular fa-user text-white"></i></button> : 
+                 <button type="button" onClick={() => navigate('/register')} className="bg-[#95B2EF] text-[14px] px-5 py-2 rounded-[2px] active:scale-x-95">Register</button>
+                }
             </div>
         </div>
     </nav>

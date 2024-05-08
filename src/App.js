@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import DetailsPage from './pages/DetailsPage';
 import ProfilePage from './pages/ProfilePage';
 import RegistrationPage from './pages/RegistrationPage';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
@@ -12,7 +13,11 @@ function App() {
           <Routes>
             <Route path='/' element={<HomePage/>} />
             <Route path='/movie/:id' element={<DetailsPage/>} />
-            <Route path='/my-profile' element={<ProfilePage/>} />
+            <Route path='/my-profile' element={
+              <PrivateRoute>
+                <ProfilePage/>
+              </PrivateRoute>} 
+            />
             <Route path='/register' element={<RegistrationPage/>} />
           </Routes>
       </BrowserRouter>
