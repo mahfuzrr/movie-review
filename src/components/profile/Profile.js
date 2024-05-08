@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 export default function Profile(){
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [searchVal, setSearchVal] = useState('');
+
     useEffect(() => {
         let auth = localStorage?.getItem('movie-review-auth');
         if(auth)auth = JSON.parse(auth);
@@ -28,7 +30,7 @@ export default function Profile(){
                 <div className="flex items-center justify-between px-3 py-4">
                 <p className="text-[#95B2EF] text-[16px] font-medium">List of Favourite Movies</p>
                 <div className="relative flex justify-end w-2/4">
-                        <input className="font-['Poppins'] text-[14px] w-1/2 border border-white bg-[#303441] px-4 py-2 rounded-[3px] focus:outline-none text-white" type="text" placeholder="Search movie in your profile"/>
+                        <input value={searchVal} onChange={(e) => setSearchVal(e.target.value)} className="font-['Poppins'] text-[14px] w-1/2 border border-white bg-[#303441] px-4 py-2 rounded-[3px] focus:outline-none text-white" type="text" placeholder="Search movie in your profile"/>
                         <span className="absolute right-4 top-2"><i className="fa-solid fa-magnifying-glass text-white"></i></span>
                     </div>
                 </div>

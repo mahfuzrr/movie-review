@@ -3,7 +3,7 @@ import Layout from "./Layout";
 
 export default function DetailsPage(){
     return(
-        <Layout> 
+        <Layout>
             <MovieDetails/> 
         </Layout>
     );
