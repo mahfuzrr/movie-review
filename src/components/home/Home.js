@@ -1,12 +1,14 @@
-export default function Home(){
+import heroImage from '../../assets/hero-image.png';
+import defaultImage from '../../assets/default-img.png';
 
+export default function Home(){
     return(
         <>
             {/* <!-- here section starts here --> */}
-            <div className="w-4/5 mt-4 ml-auto mr-auto">
+            <div className="w-4/5 mt-8 ml-auto mr-auto">
                 <div className=
                 "bg-[url('./image 2.png')] h-[500px] bg-cover w-full flex items-end bg-no-repeat bg-center before:content-[''] before:absolute before:inset-0 before:block before:bg-gradient-to-t before:from-black before:to-transparent before:opacity-85 before:z-[-5] max-h-[32rem] relative overflow-hidden z-10 px-10 pb-16" 
-                style={{"background-image": "url('./image 2.png');"}}>
+                style={{"background-image": 'url(' + heroImage + ')'}}>
                     <div>
                         <button type="button" className="bg-white px-5 py-1.5 rounded-[20px] font-['Poppins'] font-medium text-[14px]">1hr 12min</button>
                         <p className="mt-4 pb-0 text-white font-['Poppins'] text-[30px] font-medium uppercase">fast and furious</p>
@@ -24,49 +26,49 @@ export default function Home(){
                 <div className="mt-5 flex flex-wrap gap-7">
                     {/* <!-- single trending  --> */}
                     <div>
-                        <img className="w-44 border border-white rounded-md" src="./Rectangle 42.png" alt="trending"/>
+                        <img className="w-44 border border-white rounded-md" src={defaultImage} alt="trending"/>
                         <p className="text-white text-[16px] font-medium mt-2 mb-0 pb-0 font-['Poppins']">Outsider</p>
                         <span className="text-white text-[12px] m-0 p-0 font-['Poppins']">Jan 28, 2022</span>
                     </div>
                     {/* <!-- single trending  --> */}
                     <div>
-                        <img className="w-44 border border-white rounded-md" src="./Rectangle 42.png" alt="trending"/>
+                        <img className="w-44 border border-white rounded-md" src={defaultImage} alt="trending"/>
                         <p className="text-white text-[16px] font-medium mt-2 mb-0 pb-0 font-['Poppins']">Outsider</p>
                         <span className="text-white text-[12px] m-0 p-0 font-['Poppins']">Jan 28, 2022</span>
                     </div>
                     {/* <!-- single trending  --> */}
                     <div>
-                        <img className="w-44 border border-white rounded-md" src="./Rectangle 42.png" alt="trending"/>
+                        <img className="w-44 border border-white rounded-md" src={defaultImage} alt="trending"/>
                         <p className="text-white text-[16px] font-medium mt-2 mb-0 pb-0 font-['Poppins']">Outsider</p>
                         <span className="text-white text-[12px] m-0 p-0 font-['Poppins']">Jan 28, 2022</span>
                     </div>
                     {/* <!-- single trending  --> */}
                     <div>
-                        <img className="w-44 border border-white rounded-md" src="./Rectangle 42.png" alt="trending"/>
+                        <img className="w-44 border border-white rounded-md" src={defaultImage} alt="trending"/>
                         <p className="text-white text-[16px] font-medium mt-2 mb-0 pb-0 font-['Poppins']">Outsider</p>
                         <span className="text-white text-[12px] m-0 p-0 font-['Poppins']">Jan 28, 2022</span>
                     </div>
                     {/* <!-- single trending  --> */}
                     <div>
-                        <img className="w-44 border border-white rounded-md" src="./Rectangle 42.png" alt="trending"/>
+                        <img className="w-44 border border-white rounded-md" src={defaultImage} alt="trending"/>
                         <p className="text-white text-[16px] font-medium mt-2 mb-0 pb-0 font-['Poppins']">Outsider</p>
                         <span className="text-white text-[12px] m-0 p-0 font-['Poppins']">Jan 28, 2022</span>
                     </div>
                     {/* <!-- single trending  --> */}
                     <div>
-                        <img className="w-44 border border-white rounded-md" src="./Rectangle 42.png" alt="trending"/>
+                        <img className="w-44 border border-white rounded-md" src={defaultImage} alt="trending"/>
                         <p className="text-white text-[16px] font-medium mt-2 mb-0 pb-0 font-['Poppins']">Outsider</p>
                         <span className="text-white text-[12px] m-0 p-0 font-['Poppins']">Jan 28, 2022</span>
                     </div>
                     {/* <!-- single trending  --> */}
                     <div>
-                        <img className="w-44 border border-white rounded-md" src="./Rectangle 42.png" alt="trending"/>
+                        <img className="w-44 border border-white rounded-md" src={defaultImage} alt="trending"/>
                         <p className="text-white text-[16px] font-medium mt-2 mb-0 pb-0 font-['Poppins']">Outsider</p>
                         <span className="text-white text-[12px] m-0 p-0 font-['Poppins']">Jan 28, 2022</span>
                     </div>
                     {/* <!-- single trending  --> */}
                     <div>
-                        <img className="w-44 border border-white rounded-md" src="./Rectangle 42.png" alt="trending"/>
+                        <img className="w-44 border border-white rounded-md" src={defaultImage} alt="trending"/>
                         <p className="text-white text-[16px] font-medium mt-2 mb-0 pb-0 font-['Poppins']">Outsider</p>
                         <span className="text-white text-[12px] m-0 p-0 font-['Poppins']">Jan 28, 2022</span>
                     </div>

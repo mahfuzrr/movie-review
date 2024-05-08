@@ -1,14 +1,21 @@
 import './App.css';
-import Navbar from './components/navbar/Navbar';
-import Home from './components/home/Home';
-import Footer from './components/footer/Footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import DetailsPage from './pages/DetailsPage';
+import ProfilePage from './pages/ProfilePage';
+import RegistrationPage from './pages/RegistrationPage';
 
 function App() {
   return (
     <>
-      <Navbar/>
-      <Home/>
-      <Footer/>
+      <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<HomePage/>} />
+            <Route path='/movie/:id' element={<DetailsPage/>} />
+            <Route path='/my-profile' element={<ProfilePage/>} />
+            <Route path='/register' element={<RegistrationPage/>} />
+          </Routes>
+      </BrowserRouter>
     </>
   );
 }
