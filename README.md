@@ -1,6 +1,6 @@
 # Moview Hub
 
-Moview Hub is a moview review and details website. Here users can search for a movie and see details.
+Movie Hub is a movie review and details website. Here users can search for a movie and see details.
 
 # Live Webite Link
 

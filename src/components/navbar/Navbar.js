@@ -30,7 +30,7 @@ export default function Navbar(){
             <div className="w-3/5 flex items-center justify-end">
                 {/* <!-- search --> */}
                 <div className="relative flex justify-end w-10/12">
-                    <input value={searchVal} onChange={(e) => setSearchVal(e.target.value)} onKeyDown={handleSearch} className="font-['Poppins'] text-[14px] w-1/2 border border-white bg-[#303441] px-4 py-2 rounded-[3px] focus:outline-none text-white mr-6" type="text" placeholder="Search and hit enter for movie"/>
+                    <input data-cy="search-movie" value={searchVal} onChange={(e) => setSearchVal(e.target.value)} onKeyDown={handleSearch} className="font-['Poppins'] text-[14px] w-1/2 border border-white bg-[#303441] px-4 py-2 rounded-[3px] focus:outline-none text-white mr-6" type="text" placeholder="Search and hit enter for movie"/>
                     <span className="absolute right-10 top-2"> <i className="fa-solid fa-magnifying-glass text-white"></i></span>
                 </div>
                 {/* <!-- profile --> */}

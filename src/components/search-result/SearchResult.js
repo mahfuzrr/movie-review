@@ -18,7 +18,7 @@ export default function SearchResult(){
     }, [movie_name]);
 
     return(
-        <div className="w-4/5 mt-4 ml-auto mr-auto min-h-screen">
+        <div data-cy="search-result-row" className="w-4/5 mt-4 ml-auto mr-auto min-h-screen">
             <div>
                 <p className="font-['Poppins'] text-[18px] text-center font-medium text-white">Search Result For {movie_name}</p>
             </div>
