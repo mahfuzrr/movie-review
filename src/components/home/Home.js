@@ -32,7 +32,7 @@ export default function Home(){
         else{
             toast.error("Please Register!", {
                 position: 'top-right',
-                duration: '1000',
+                duration: 800,
                 id: 'home-add-fav',
             });
         }
