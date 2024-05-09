@@ -27,11 +27,11 @@ export default function MovieDetails(){
     }
     
     const setDescriptionFunc = () => {
-        if(val?.length > 20 && !readMore){
-            setDescription(description?.slice(0, 20));
+        if(val?.length <= 20 && !readMore){
+            setDescription(val);
         }
         else{
-            setDescription(val);
+            setDescription(description?.slice(0, 20));
         }
         setReadMore(!readMore);
     }
@@ -56,7 +56,7 @@ export default function MovieDetails(){
                         <p className="mt-4 md:md-8 text-justify text-[15px]">
                             {description}
                             <br/>
-                            <button onClick={setDescriptionFunc} className="text-[#95B2EF] text-[14px] mt-3 border-none hover:underline active:scale-x-95">Read More <i className="fa-solid fa-chevron-down"></i></button>
+                            <button onClick={setDescriptionFunc} className="text-[#95B2EF] text-[14px] mt-3 border-none hover:underline active:scale-x-95">Read {readMore ? "Less" : "More"} {!readMore ? <i className="fa-solid fa-chevron-down"></i> : <i class="fa-solid fa-chevron-up"></i>}</button>
                         </p>
                         <button disabled type="button" className="mt-4 bg-white text-black px-5 py-1.5 rounded-[20px] font-['Poppins'] font-medium text-[14px]">1hr 12min</button><br/>
                         <button onClick={handleAddToFavourite} type="button" className="mt-3 bg-[#95B2EF] font-['Poppins'] text-black text-[14px] px-5 py-2 rounded-[3px] transition ease all active:scale-x-95"><i className="fa-regular fa-heart"></i> Add to Favourites</button>

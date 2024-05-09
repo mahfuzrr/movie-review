@@ -7,6 +7,8 @@ export default function Profile(){
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [searchVal, setSearchVal] = useState('');
+    const [favouriteData, setFavouriteData] = useState([]);
+    const [tableFavData, setTableFavData] = useState([]);
 
     useEffect(() => {
         let auth = localStorage?.getItem('movie-review-auth');
@@ -14,8 +16,37 @@ export default function Profile(){
         setName(auth?.name);
         setEmail(auth?.email);
     }, []);
+
+    useEffect(() => {
+        let fav = localStorage.getItem('fav-movie');
+        if(fav){
+            fav = JSON.parse(fav);
+            setFavouriteData(fav)
+            setTableFavData(fav);
+        }
+    }, []);
+
+    const handleRemoveFav = (fav={}) => {
+        const updatedFav = tableFavData.filter((d) => d?.id !== fav?.id || d?.imdbID !== fav?.imdbID);
+        const updatedSearchFav = favouriteData.filter((d) => d?.id !== fav?.id || d?.imdbID !== fav?.imdbID);
+        setFavouriteData(updatedSearchFav);
+        setTableFavData(updatedFav);
+        localStorage.removeItem('fav-movie');
+        localStorage.setItem('fav-movie', JSON.stringify(updatedFav));
+    }
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            const sVal = searchVal?.toLowerCase();
+            const filterSearch = tableFavData?.filter((d) => d?.name?.toLowerCase()?.includes(sVal) || d?.Title?.toLowerCase()?.includes(sVal));
+            setFavouriteData(filterSearch);
+        }, 100);
+        return () => clearTimeout(timeout);
+    }, [searchVal, tableFavData]);
+
+
     return(
-        <div className="w-4/5 mt-4 ml-auto mr-auto">
+        <div className="w-4/5 mt-4 ml-auto mr-auto min-h-screen">
             <div style={{"background-image": 'url(' + profileBackground + ')'}} className="px-4 pb-4 rounded-[5px]">
                 <div className="flex items-end h-32">
                     <img className="w-20 mr-2 rounded-sm" src={avatar} alt="my-avatar"/>
@@ -35,118 +66,24 @@ export default function Profile(){
                     </div>
                 </div>
                 {/* <!-- single fav movie row --> */}
-                <div className="flex items-center justify-between border border-[#454545] px-1 py-1">
-                    <div className="cursor-pointer select-none">
-                        <img className="w-12" src={defaultImage} alt="fav-movie"/>
-                    </div>
-                    <div className="cursor-pointer select-none">
-                        <p className="text-white text-[13px]">3 idiots</p>
-                    </div>
-                    <div>
-                        <p className="text-white text-[13px]">Comedy.Education</p>
-                    </div>
-                    <div>
-                        <p className="text-white text-[13px]">2009</p>
-                    </div>
-                    <div className="pr-5">
-                        <button className="border-none text-white active:scale-x-95" type="button"><i className="fa-solid fa-heart"></i></button>
-                    </div>
-                </div>
 
-                {/* <!-- single fav movie row --> */}
-                <div className="flex items-center justify-between border border-[#454545] px-1 py-1">
+                {favouriteData?.map((data) =>  <div key={data?.id || data?.imdbID} className="flex items-center justify-between border border-[#454545] px-1 py-1">
                     <div className="cursor-pointer select-none">
-                        <img className="w-12" src={defaultImage} alt="fav-movie"/>
+                        <img className="w-12" src={data?.Poster || data?.thumbnail} alt="fav-movie"/>
                     </div>
                     <div className="cursor-pointer select-none">
-                        <p className="text-white text-[13px]">3 idiots</p>
+                        <p className="text-white text-[13px]">{data?.name || data?.Title}</p>
                     </div>
                     <div>
-                        <p className="text-white text-[13px]">Comedy.Education</p>
+                        <p className="text-white text-[13px]">{data?.category ? data?.category?.toString() : data?.Genre}</p>
                     </div>
                     <div>
-                        <p className="text-white text-[13px]">2009</p>
+                        <p className="text-white text-[13px]">{data?.release_data || data?.Released}</p>
                     </div>
                     <div className="pr-5">
-                        <button className="border-none text-white active:scale-x-95" type="button"><i className="fa-solid fa-heart"></i></button>
+                        <button onClick={() => handleRemoveFav(data)} className="border-none text-white active:scale-x-95" type="button"><i className="fa-solid fa-heart"></i></button>
                     </div>
-                </div>
-
-                {/* <!-- single fav movie row --> */}
-                <div className="flex items-center justify-between border border-[#454545] px-1 py-1">
-                    <div className="cursor-pointer select-none">
-                        <img className="w-12" src={defaultImage} alt="fav-movie"/>
-                    </div>
-                    <div className="cursor-pointer select-none">
-                        <p className="text-white text-[13px]">3 idiots</p>
-                    </div>
-                    <div>
-                        <p className="text-white text-[13px]">Comedy.Education</p>
-                    </div>
-                    <div>
-                        <p className="text-white text-[13px]">2009</p>
-                    </div>
-                    <div className="pr-5">
-                        <button className="border-none text-white active:scale-x-95" type="button"><i className="fa-solid fa-heart"></i></button>
-                    </div>
-                </div>
-
-                {/* <!-- single fav movie row --> */}
-                <div className="flex items-center justify-between border border-[#454545] px-1 py-1">
-                    <div className="cursor-pointer select-none">
-                        <img className="w-12" src={defaultImage} alt="fav-movie"/>
-                    </div>
-                    <div className="cursor-pointer select-none">
-                        <p className="text-white text-[13px]">3 idiots</p>
-                    </div>
-                    <div>
-                        <p className="text-white text-[13px]">Comedy.Education</p>
-                    </div>
-                    <div>
-                        <p className="text-white text-[13px]">2009</p>
-                    </div>
-                    <div className="pr-5">
-                        <button className="border-none text-white active:scale-x-95" type="button"><i className="fa-solid fa-heart"></i></button>
-                    </div>
-                </div>
-
-                {/* <!-- single fav movie row --> */}
-                <div className="flex items-center justify-between border border-[#454545] px-1 py-1">
-                    <div className="cursor-pointer select-none">
-                        <img className="w-12" src={defaultImage} alt="fav-movie"/>
-                    </div>
-                    <div className="cursor-pointer select-none">
-                        <p className="text-white text-[13px]">3 idiots</p>
-                    </div>
-                    <div>
-                        <p className="text-white text-[13px]">Comedy.Education</p>
-                    </div>
-                    <div>
-                        <p className="text-white text-[13px]">2009</p>
-                    </div>
-                    <div className="pr-5">
-                        <button className="border-none text-white active:scale-x-95" type="button"><i className="fa-solid fa-heart"></i></button>
-                    </div>
-                </div>
-
-                {/* <!-- single fav movie row --> */}
-                <div className="flex items-center justify-between border border-[#454545] px-1 py-1">
-                    <div className="cursor-pointer select-none">
-                        <img className="w-12" src={defaultImage} alt="fav-movie"/>
-                    </div>
-                    <div className="cursor-pointer select-none">
-                        <p className="text-white text-[13px]">3 idiots</p>
-                    </div>
-                    <div>
-                        <p className="text-white text-[13px]">Comedy.Education</p>
-                    </div>
-                    <div>
-                        <p className="text-white text-[13px]">2009</p>
-                    </div>
-                    <div className="pr-5">
-                        <button className="border-none text-white active:scale-x-95" type="button"><i className="fa-solid fa-heart"></i></button>
-                    </div>
-                </div>
+                </div>)}
                 
             </div>
     </div>
