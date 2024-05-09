@@ -5,6 +5,7 @@ import DetailsPage from './pages/DetailsPage';
 import ProfilePage from './pages/ProfilePage';
 import RegistrationPage from './pages/RegistrationPage';
 import PrivateRoute from './components/PrivateRoute';
+import SearchResultPage from './pages/SearchResultPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
                 <ProfilePage/>
               </PrivateRoute>} 
             />
+            <Route path='/search/:movie_name' element={<SearchResultPage/>} />
             <Route path='/register' element={<RegistrationPage/>} />
           </Routes>
       </BrowserRouter>

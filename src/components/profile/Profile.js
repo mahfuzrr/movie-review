@@ -1,6 +1,5 @@
 import profileBackground from '../../assets/profile-bg.png';
 import avatar from '../../assets/avatar.png';
-import defaultImage from '../../assets/default-img.png';
 import { useEffect, useState } from 'react';
 
 export default function Profile(){

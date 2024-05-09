@@ -1,5 +1,4 @@
 import { Carousel } from 'react-responsive-carousel';
-import heroImage from '../../assets/hero-image.png';
 import TrendingMovies from './TrendingMovies';
 import toast from 'react-hot-toast';
 import useAuthCheck from '../hooks/useAuthCheck';
