@@ -1,6 +1,7 @@
 import profileBackground from '../../assets/profile-bg.png';
 import avatar from '../../assets/avatar.png';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Profile(){
     const [name, setName] = useState('');
@@ -8,6 +9,8 @@ export default function Profile(){
     const [searchVal, setSearchVal] = useState('');
     const [favouriteData, setFavouriteData] = useState([]);
     const [tableFavData, setTableFavData] = useState([]);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         let auth = localStorage?.getItem('movie-review-auth');
@@ -46,7 +49,7 @@ export default function Profile(){
 
     return(
         <div className="w-4/5 mt-4 ml-auto mr-auto min-h-screen">
-            <div style={{"background-image": 'url(' + profileBackground + ')'}} className="px-4 pb-4 rounded-[5px]">
+            <div style={{"backgroundImage": 'url(' + profileBackground + ')'}} className="px-4 pb-4 rounded-[5px]">
                 <div className="flex items-end h-32">
                     <img className="w-20 mr-2 rounded-sm" src={avatar} alt="my-avatar"/>
                     <div>
@@ -67,17 +70,17 @@ export default function Profile(){
                 {/* <!-- single fav movie row --> */}
 
                 {favouriteData?.map((data) =>  <div key={data?.id || data?.imdbID} className="flex items-center justify-between border border-[#454545] px-1 py-1">
-                    <div className="cursor-pointer select-none">
+                    <div className="cursor-pointer select-none" onClick={() => navigate(`/movie/${data?.id || data?.imdbID}`)}>
                         <img className="w-12" src={data?.Poster || data?.thumbnail} alt="fav-movie"/>
                     </div>
-                    <div className="cursor-pointer select-none">
+                    <div className="cursor-pointer select-none" onClick={() => navigate(`/movie/${data?.id || data?.imdbID}`)}>
                         <p className="text-white text-[13px]">{data?.name || data?.Title}</p>
                     </div>
                     <div>
                         <p className="text-white text-[13px]">{data?.category ? data?.category?.toString() : data?.Genre}</p>
                     </div>
                     <div>
-                        <p className="text-white text-[13px]">{data?.release_data || data?.Released}</p>
+                        <p className="text-white text-[13px]">{data?.release_date || data?.Released}</p>
                     </div>
                     <div className="pr-5">
                         <button onClick={() => handleRemoveFav(data)} className="border-none text-white active:scale-x-95" type="button"><i className="fa-solid fa-heart"></i></button>

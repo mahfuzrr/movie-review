@@ -20,6 +20,7 @@ export default function Home(){
             if(favouriteData){
                 const newData = favouriteData;
                 newData?.push(fav);
+                console.log(newData);
                 localStorage.setItem('fav-movie', JSON.stringify(newData));
                 setFavouriteData(newData);
                 toast.success("Added to favourite", {
@@ -39,7 +40,7 @@ export default function Home(){
     }
 
     useEffect(() => {
-        fetch('https://review-server.onrender.com/review-api').then((res) => {
+        fetch('https://review-server-one.vercel.app/review-api').then((res) => {
             res.json().then((result) => {
                 if(result){
                     setMovieData(result);
@@ -72,12 +73,12 @@ export default function Home(){
                 <Carousel showArrows={true} autoPlay={true} infiniteLoop={true} showThumbs={false}>
                     {carouselData?.map((cData) => 
                     <div key={cData?.id} className="h-[500px] w-full flex items-end bg-cover bg-no-repeat bg-center before:content-[''] before:absolute before:inset-0 before:block before:bg-gradient-to-t before:from-black before:to-transparent before:opacity-85 before:z-[-5] max-h-[32rem] relative overflow-hidden z-10 px-10 pb-16" 
-                    style={{"background-image": 'url(' + cData?.thumbnail + ')'}}>
+                    style={{"backgroundImage": 'url(' + cData?.thumbnail + ')'}}>
                         <div className='text-start'>
                             <button disabled type="button" className="bg-white px-5 py-1.5 rounded-[20px] font-['Poppins'] font-medium text-[14px]">{cData?.length}</button>
                             <p className="mt-4 pb-0 text-white font-['Poppins'] text-[30px] font-medium uppercase">{cData?.name}</p>
                             <span className="text-white text-[14px]">{cData?.release_date?.slice(-4)}{cData?.category?.map((cat) => `.${cat}`)}</span><br/>
-                            <button onClick={() => handleAddToFavourite(cData)} type="button" className="mt-5 bg-[#95B2EF] text-[14px] px-5 py-2 rounded-[3px] transition ease all active:scale-x-95"> {isInFavList(cData) ? <i class="fa-solid fa-heart"></i> : <i className="fa-regular fa-heart"></i>} Add to Favourites</button>
+                            <button onClick={() => handleAddToFavourite(cData)} type="button" className="mt-5 bg-[#95B2EF] text-[14px] px-5 py-2 rounded-[3px] transition ease all active:scale-x-95"> {isInFavList(cData) ? <i className="fa-solid fa-heart"></i> : <i className="fa-regular fa-heart"></i>} Add to Favourites</button>
                         </div>
                     </div>
                     )}
