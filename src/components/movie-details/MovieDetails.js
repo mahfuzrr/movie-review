@@ -38,7 +38,12 @@ export default function MovieDetails(){
 
     const isInFavList = (fav={}) => {
         for(let i=0; i<favouriteData?.length; i++){
-            if(favouriteData[i]?.name === fav?.name)return true;
+            if(fav?.name){
+                if(fav?.name === favouriteData[i]?.name || fav?.name === favouriteData[i]?.Title)return true;
+            }
+            else if(fav?.Title){
+                if(fav?.Title === favouriteData[i]?.Title || fav?.Title === favouriteData[i]?.name)return true;
+            }
         }
         return false;
     }
@@ -55,7 +60,6 @@ export default function MovieDetails(){
             if(favouriteData){
                 const newData = favouriteData;
                 newData?.push(fav);
-                console.log(newData);
                 localStorage.setItem('fav-movie', JSON.stringify(newData));
                 setFavouriteData(newData);
                 toast.success("Added to favourite", {

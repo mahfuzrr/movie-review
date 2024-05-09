@@ -20,7 +20,6 @@ export default function Home(){
             if(favouriteData){
                 const newData = favouriteData;
                 newData?.push(fav);
-                console.log(newData);
                 localStorage.setItem('fav-movie', JSON.stringify(newData));
                 setFavouriteData(newData);
                 toast.success("Added to favourite", {
