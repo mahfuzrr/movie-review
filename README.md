@@ -2,6 +2,10 @@
 
 Moview Hub is a moview review and details website. Here users can search for a movie and see details.
 
+# Live Webite Link
+
+You can visit live website from Here [Movie Review]('https://movie-review-007.netlify.app/')
+
 ## Features
 
 - Search a movie
@@ -15,8 +19,8 @@ Moview Hub is a moview review and details website. Here users can search for a m
 - [OMDapi](https://www.omdbapi.com/)
 - My Custom Api which is built with JSON server and ExpressJs
 
-## About Searching
+## Note About Searching
 
 **Q: Why should I hit Enter to search a movie**
 
-**A:** For free version API of OMDApi provides only 1000 request per day that's why I implement it this way instead of debounce functionality.
+**A:** OMDApi provides only 1000 request per day for free version API, that's why I implement it this way instead of debounce functionality.
