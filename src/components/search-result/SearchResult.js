@@ -10,7 +10,12 @@ export default function SearchResult(){
         fetch(api).then((res) => {
             res.json().then((result) => {
                 if(result?.Response){
-                    const modifiedData = result?.Search?.slice(0, 50);
+                    let modifiedData = result?.Search?.slice(0, 50);
+                    modifiedData = modifiedData?.sort((a, b) => {
+                        if(a.Title < b.Title) { return -1; }
+                        if(a.Title > b.Title) { return 1; }
+                        return 0;
+                    });
                     setMovieData(modifiedData);
                 }
             })
